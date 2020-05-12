@@ -1,0 +1,404 @@
+;
+; VCDS Labeldatei v3 09032020
+;
+; Copyright © 2006+ Ross-Tech, LLC
+;
+; Audi A4 (8E) / VW Passat (3B)
+;
+; Bauteil: J248 - Motorelektronik (#01) - AVB
+;
+; T/N: 038-906-019-??
+;
+; beinhaltet Messwertblöcke, Grundeinstellung, Anpassung, Codierung und Login
+;
+; This file is part of a label file package,
+; make sure you have all of the following files.
+;
+; 03-01.LBL
+; 038-906-019-AVB.LBL (1.9l TDI @ 100 HP - AVB)
+;
+; erstellt am 12.01.2006 von Sebastian Stange (sebastian@ross-tech.com)
+;
+; letzte Änderung am 03.07.2012
+;
+; benötigt VCDS 11.11.2 oder neuer
+;
+;2,0,Group Heading: One Line, Maximum 70 Characters!
+;2,2,Max field leng., is 13-17 chars,except for the third field that can be 80 chars long.
+;---------------------------------------------------
+;
+; Messwertblöcke & Grundeinstellung
+;
+;---------------------------------------------------
+;
+;Measuring block 000 data at idle, engine warm, coolant >=80°C / Measuring block 000 data at full load, 3rd gear, temp 80°C, at 3000 rpm
+000,1,Engine Speed,Specified (Idle/manual trans): 39...45 (820...940 rpm)\nSpecified (Idle/Automatik): 38...42 (790...870 rpm)\nSpecified (Full Load): 134...154 (2800...3200 rpm)
+000,2,Start of Injection,Specified (Idle): 113...133 (4.0...2.0 °n.OT)
+000,3,Trottle Position,Range: 0...255 (0.0...100.0 %)\nSpecified (Idle): 0 %\nSpecified (Full Load): 255 (100 %)
+000,4,Injection Quantity,Specified (Idle): 11...33 (3.0...9.0 mg/H)\nSpecified (Full Load): 142...164
+000,5,Manifold Absolute Press.,Specified (Idle): 88...113 (900...1150 mbar)\nSpecified (Full Load): 181...221 (1850...2250 mbar)
+000,6,Atmospheric Pressure,Specified: 181...222 (900...1100 mbar)
+000,7,Engine Coolant Temp.,Specified: 88...36 (80...110 °C)
+000,8,Intake Manifold Temp.,Specified: 51...190 (5...100 °C)
+000,9,Fuel Temperature,Specified: 85...185 (20...90 °C)
+000,10,Air Mass(EGR on),Specified (Idle): 60...111 (200...370 mg/H)\nSpecified (Full Load): mind. 240 (mind. 800 mg/H)
+;EGR is switched off after approx. 2 min. of idle (>2min, restart eng. or blip)
+;
+001,0,Injected quantity
+001,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+001,2,Injected quantity,3-9 mg/str,Specified (Idle): 3.0...9.0 mg/str
+001,3,Spec.Inj.duration,3.0...8.0 °Ck,Specified (Idle): 3.0...8.0 °cK\nSpecified (Full Load): 19.0...24.0 °cK
+001,4,Coolant temp(G62),80.0 - 110.0 °C,Specified (Cold): ~Ambient temp\nSpecified (Warm): 80.0...110.0 °C
+;
+002,0,Idle Speed
+001,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+002,2,Throttle pos.,0 %,Range: 0.0...100.0 %\nSpecified (Idle): 0.0 %\nSpecified (Full Load): 100.0 %
+002,3,Operating Cond.,,xx1 = AC compressor switched on\nx1x = Throttle Position switch closed\n1xx = Inc. idle speed as AC switched on
+; xx1 = Klimakompressor eingeschaltet
+; x1x = Leerlaufschalter geschlossen
+; 1xx = Leerlaufdrehzahl erhöht (Klimaanlage AN)
+002,4,Coolant temp(G62),80.0 - 110.0 °C,Specified (Cold): ~Ambient temp\nSpecified (Warm): 80.0...110.0 °C
+;
+003,0,EGR (Exhaust Gases Recycling)
+003,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+003,2,MAF (Specified),220.0...350.0 mg/Str,Specified (Idle): 220.0...350.0 mg/Str
+003,3,MAF(Actual),200.0...370.0 mg,Specified (Idle): 200.0...370.0 mg/Str\nSpecified (Full Load): 800.0...1100.0 mg/Str\nSpecified (Tolerance to Specified): max. 20 .0 mg/Str
+003,4,EGR DutyCycle N18,40.0...80.0 %,Specified (Idle): 40.0...80.0 %
+;
+B003,0,EGR (Exhaust Gases Recycling)
+; Ignition ON, engine ON (idling)
+; Activate basic setting
+; Depress the brake pedal and accelerator pedal at the same time
+; Exhaust gas recirculation is switched on and off alternately
+; The difference between "EGR active" and "EGR inactive" must be at least 100.0 mg/str
+B003,1,Engine Speed G28,1350...1450 rpm,Specified (Grundeinstellung): 1350...1450 rpm
+B003,2,EGR,(Specified)
+B003,3,EGR,Act=sp+-100,Difference (AGR aktiv/inaktiv): min. 100.0 mg/Str
+B003,4,EGR (N18),EGR
+B003,11,,,Requirements: Ignition ON / engine ON (idling)
+B003,12,,,Activate the basic setting and depress the brake and accelerator pedals.
+B003,13,,,The exhaust gas recirculation (EGR) is now automatically activated and deactivated.
+B003,14,,,The difference between EGR ON/EGR OFF must be at least 100.0 mg/str
+;
+004,0,Unit Injectors valves command (check baloons idel and full load)
+004,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+004,2,Spec start of inj,4.0 BT...2.0 ATDC,Specified (Idle): 4.0 °BTDC ... 2.0 °ATDC\nSpecified (Full Load): 13.0...23.0 °BTDC\nBTDC= Before Ttop Dead Center = advanced direction = positive number\nATDC= After Ttop Dead Center = retarded direction = negative number
+004,3,Spec inj.duration,3.0...8.0 °cK,Specified (Idle): 3.0...8.0 °cK\nSpecified (Full Load): 19.0...24.0 °cK
+004,4,Synchro. angle,-3.0...+3.0 °cK,Range: -20.0...+20.0 °cK\nSpecified: -3.0...+3.0 °cK
+;
+005,0,Starting conditions
+005,1,Engine Speed -G28,820...940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm
+005,2,Start inj,quantity
+005,3,Start synchro,,Sum of individual values\n001 = Camshaft self-synchronization active\n002 = Self-synchronization crankshaft active\n004 = Engine running\n008 = Motor synchronization validated\n016 = Motor synchronization successfully completed\n032 = Self-synchronization of crankshaft sensor successful\n064 = Self-synchronization of camshaft sensor successful\n128 = First valid tooth recognized
+; Intermediate values result from the sum of the individual values
+; 001 = Camshaft self-synchronization active
+; 002 = Self-synchronization crankshaft active
+; 004 = engine running
+; 008 = Motor synchronization validated
+; 016 = Motor synchronization successfully completed
+; 032 = Self-synchronization of crankshaft sensor successful
+; 064 = Self-synchronization of camshaft sensor successful
+; 128 = First valid tooth recognized
+005,4,Coolant temp(G62),80.0 - 110.0 °C,Specified (Cold): ~Ambient temp\nSpecified (Warm): 80.0...110.0 °C
+;
+006,0,Cruise control system
+006,1,Speed km/h,(Actual)
+006,2,Brake Pedal,,xx1 = brake light switch (F)\nx1x = brake pedal switch (F47)\n1xx = clutch pedal switch (F36)
+; xx1 = brake light switch (F)/Brake light switch F closed
+; x1x = brake pedal switch (F47)/Cruise DFI brake switch (F47) open
+; 1xx = clutch pedal switch (F36)/Clutch vacuum vent valve switch(F36) open
+006,3,Throttle pos.,0 %,Range: 0.0...100.0 %\nSpecified (Idle): 0.0 %\nSpecified (Full Load): 100.0 %
+006,4,Cruise control-,system,000 = Cruise activated and inactive\n001 = Cruise activated and active\n255 = Cruise not activated
+; 000 = Cruise activated and inactive
+; 001 = Cruise activated and active
+; 255 = Cruise not activated
+;
+007,0,Temperatures (Engine cold-contact on: ~Amb. temp)
+007,1,Fuel,temp (G81),(Cold)=~Amb.Temp,Specified (Cold): ~Ambient temp.
+007,2,Oil,temp (G8),(Cold)=~Amb.Temp,Specified (Cold): ~Ambient temp.
+007,3,IntakeAir tempG42,(Cold)=~Amb.Temp,Specified (Cold): ~Ambient temp. \n~136.8°C Intake Air Temp. Sens0r -G72- inoperative
+007,4,Coolant temp G62,(Cold)=~Amb.Temp,Specified (Cold): ~Ambient temp. \nShort circuit or ECT sensor -G62- inoperative
+;
+008,0,Injected Quantity(IQ) limitation (3rd gear - 3000rpm - full load)
+008,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+008,2,IQ driver's req,42-50 mg/str,Specified (Idle): 0.0 mg/str\nSpecified (Full Load): min. 52.0 mg/str
+008,3,IQ via rpm(Torq),39.0...44.0 mg/str,Specified (Idle): 25.0...47.0 mg/str\nSpecified (Full Load): 39.0...44.0 mg/str
+008,4,IQ via MAF,42.0...52.0 mg/str,Specified (Idle): 16.0...36.0 mg/str\nSpecified (Full Load): 42.0...52.0 mg/str
+;
+009,0,Injected Quantity Limitation
+009,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+009,2,Inj. Quantity,cruise active
+009,3,Inj. limit,during a/t shift
+009,4,Max IQ,limit quantity,Specified (Idle): 16.0...36.0 mg/str\nSpecified (Full load): 39.0...44.0 mg/str
+;
+010,0,Air system (3rd gear - 3000rpm - full load)
+010,1,MAF(Actual),800.0...1100.0 mg/str,Specified (Idle): 200.0...370.0 mg/str\nSpecified (Full Load): 800.0...1100.0 mg/str
+010,2,Atmo.pres.sen-f96,900-1100 mbar,Specified: 900.0...1100.0 mbar
+010,3,Act.Intake press,1850...2250 mbar,Specified (Idle): 900.0...1150.0 mbar\nSpecified (Full Load): 1850.0...2250.0 mbar
+010,4,Throttle,100%,Range: 0.0...100.0 %\nSpecified (Idle): 0.0 %\nSpecified (Full Load): 100.0 %
+;
+011,0,Intake air press.regulation (3rd gear - 3000rpm - full load)
+011,1,Engine Speed(G28),2800...3200 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+011,2,Spec.Intake press,1900...2100 mbar,Specified (Idle): 900.0...1100.0 mbar\nSpecified (Full Load): 1900.0...2100.0 mbar
+011,3,Act.Intake press,1850....2250 mbar,Specified (Idle): 900.0...1150.0 mbar\nSpecified (Full Load): 1850.0...2250.0 mbar
+011,4,D.cycle MAP (N75),45.0...80.0 %,Intake air press.limit.\nSpecified (Idle): 15.0...45.0 %\nSpecified (full load): 45.0...80.0 %
+;
+B011,0,Intake air press.regulation
+; Ignition ON, engine ON (idling)
+; Activate basic setting
+; Depress the brake pedal and accelerator pedal at the same time
+; Intake air press.regulation is switched on and off alternately
+; The difference between "LDR active" and "LDR inactive" must be at least 80.0 mbar
+B011,1,Engine Speed G28,860...940 rpm,Specified (Idle/manual trans): 860...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm
+B011,2,Intake air press,regulation status,Range: ON/OFF
+B011,3,Intake air press,(Actual)max80mbar,Diff between(LDR active/inactive): min. 80.0 mbar
+B011,4,Ventil (N75),Intake air press.limit.
+B011,11,,,Requirements: ignition ON / engine ON (idle)
+B011,12,,,Activate the basic setting and depress the brake and accelerator pedals.
+B011,13,,,Intake air press. control (LDR) is now automatically activated and deactivated.
+B011,14,,,The difference between active/inactive must be at least 80.0 mbar
+;
+012,0,Glow Plugs
+012,1,Glow status,all 1's=off,00000000 = Waiting for coolant temperature\n00000001 = Waiting for ECO start request\n00010000 = Preheating\n01010000 = No Preheating\n10110000 = Afterglow\n11000000 = No start glow\n11110000 = Intermediate annealing\n00110000 = Standby glow\n01110000 = Start glow\n10110001 = Waiting for afterglow\n11010000 = No afterglow\n11110001 = Waiting for intermediate glow\n11111111 = No glow
+; 00000000 = Waiting for coolant temperature
+; 00000001 = Waiting for ECO start request
+; 00010000 = Preheating
+; 01010000 = No preheating
+; 10110000 = Afterglow
+; 11000000 = No start glow
+; 11110000 = intermediate annealing
+; 00110000 = Standby glow
+; 01110000 = start glow
+; 10110001 = Waiting for afterglow
+; 11010000 = No afterglow
+; 11110001 = Waiting for intermediate glow
+; 11111111 = No glow
+012,2,Pre-glow period
+012,3,Supply Voltage,,Specified: 13.0...15.0 V
+012,4,Coolant temp(G62),80.0 - 110.0 °C,Specified (Cold): ~Ambient temp\nSpecified (Warm): 80.0...110.0 °C
+;
+013,0,Idle Speed Smooth Running Control
+013,1,Cyl 1 deviation,-2.8...+2.8,Specified (Idle): -2.8...+2.8 mg/str
+013,2,Cyl 2 deviation,-2.8...+2.8,Specified (Idle): -2.8...+2.8 mg/str
+013,3,Cyl 3 deviation,-2.8...+2.8,Specified (Idle): -2.8...+2.8 mg/str
+013,4,Cyl 4 deviation,-2.8...+2.8,Specified (Idle): -2.8...+2.8 mg/str
+;
+015,0,Fuel Consumption
+015,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+015,2,Inj Qty,(actual),3.0...9.0 mg/str,Specified (Idle): 3.0...9.0 mg/str
+015,3,Fuel Consumption
+015,4,Inj Qty requested,(accelerator)
+;
+016,0,Additional Heater
+016,1,Generator loading,5.0...95.0 %,Range: 0.0...100.0 %\nSpecified: 5.0...95.0 %
+016,2,Aux. heat,,xxxxxxx1 = Coolant temp. >70°C OR intake air temp. >5°C\nxxxxxx1x = Generator faulty\nxxxxx1xx = Battery voltage <9V\nxxxx1xxx = Engine speed <875 rpm\nxxx1xxxx = Engine start within the last 10 seconds\nxx1xxxxx = Coolant Temp. sensor G62 or Intake Air Temp. sensor G72 faulty\nx1xxxxxx = No heating request from the control panel\n1xxxxxxx = Ambient temp. > 5°C
+; xxxxxxx1 = Coolant temp. >70°C OR intake air temp. >5°C
+; xxxxxx1x = Generator faulty
+; xxxxx1xx = Battery voltage <9 V.
+; xxxx1xxx = Engine speed <875 rpm
+; xxx1xxxx = Engine start within the last 10 seconds
+; xx1xxxxx = Coolant Temp. sensor G62 or Intake Air Temp. sensor G72 faulty
+; x1xxxxxx = No heating request from the control panel
+; 1xxxxxxx = outside temperature greater than 5 ° C
+016,3,Activation,Hi/Lo,x1 = Low heat output,J359 on\n1x = High heat output,J360 on
+; ------x1 = Low heat output,J359 on
+; ------1x = High heat output,J360 on
+016,4,Voltage supply,ECM(Klemme 30)
+;
+017,0,Readiness Code (EOBD)
+017,1,CARB,Mode 01 DATA A,x---0000 = Keine Fehlermeldungen gespeichert\n0---xxxx = MIL-Lampe AUS\n1---xxxx = MIL-Lampe EIN
+; x---0000 = Keine Fehlermeldungen gespeichert
+; 0---xxxx = MIL-Lampe AUS
+; 1---xxxx = MIL-Lampe EIN
+017,2,CARB,Mode 01 DATA B,-xxx-xx1 = Aktivierung Zündaussetzererkennung EIN\n-xxx-x1x = Aktivierung Kraftstoffanlage EIN\n-xxx-1xx = Aktivierung Gesamtsystem EIN\n-xxx-xxx = EOBD-Test Zündaussetzererkennung abgeschlossen \n-x0x-xxx = EOBD-Test Kraftstoffanlage abgeschlossen\n-0xx-xxx = EOBD-Test Gesamtsystem abgeschlossen
+; -xxx-xx1 = Aktivierung Zündaussetzererkennung EIN
+; -xxx-x1x = Aktivierung Kraftstoffanlage EIN
+; -xxx-1xx = Aktivierung Gesamtsystem EIN
+; -xxx-xxx = EOBD-Test Zündaussetzererkennung abgeschlossen 
+; -x0x-xxx = EOBD-Test Kraftstoffanlage abgeschlossen
+; -0xx-xxx = EOBD-Test Gesamtsystem abgeschlossen
+017,3,CARB,Mode 01 DATA C,xx1----- = Aktivierung Lambdasonde EIN\nx1x----- = Aktivierung Lambdasondenheizung EIN\n1xx----- = Aktivierung Abgasrückführung EIN
+; xx1----- = Aktivierung Lambdasonde EIN
+; x1x----- = Aktivierung Lambdasondenheizung EIN
+; 1xx----- = Aktivierung Abgasrückführung EIN
+017,4,CARB,Mode 01 DATA D,xx0----- = EOBD-Test Lambdasonde abgeschlossen\nx0x----- = EOBD-Test Lambdasondenheizung abgeschlossen\n0xx----- = EOBD-Test Abgasrückführung abgeschlossen
+; xx0----- = EOBD-Test Lambdasonde abgeschlossen
+; x0x----- = EOBD-Test Lambdasondenheizung abgeschlossen
+; 0xx----- = EOBD-Test Abgasrückführung abgeschlossen
+;
+018,0,PD valve status(after 1 min idling- coolant>80°C)
+; 000 = Error-free control
+; 002 = Regulation during starting
+; 004 = Small injection quantity or valve OFF
+; 008 = Energy limits/maximum current reached
+; 014 = Injector coil: short circuit to ground
+; 016 = Valve closing time (Begin of Injection Period = BIP) implausible (outside standard window)
+; 032 = Number of samples too small
+; 064 = Conversion error
+; 128 = No closing time identification (Begin of Injection Period = BIP) possible (engine OFF OR electrical error)
+018,1,Cyl 1 status,0,Specified: (Motor ON): 0\n\n000 = Error-free control\n002 = Regulation during starting\n004 = Small injection quantity or valve OFF\n008 = Energy limits/maximum current reached\n014 =Injector coil: short circuit to ground\n016 = Valve closing time (Begin of Injection Period = BIP) implausible (outside standard window)\n032 = Number of samples too small\n064 = Conversion error\n128 = No closing time identification (Begin of Injection Period = BIP) possible (engine OFF OR electrical error)
+018,2,Cyl 2 status,0,Specified: (Motor ON): 0\n\n000 = Error-free control\n002 = Regulation during starting\n004 = Small injection quantity or valve OFF\n008 = Energy limits/maximum current reached\n014 =Injector coil: short circuit to ground\n016 = Valve closing time (Begin of Injection Period = BIP) implausible (outside standard window)\n032 = Number of samples too small\n064 = Conversion error\n128 = No closing time identification (Begin of Injection Period = BIP) possible (engine OFF OR electrical error)
+018,3,Cyl 3 status,0,Specified: (Motor ON): 0\n\n000 = Error-free control\n002 = Regulation during starting\n004 = Small injection quantity or valve OFF\n008 = Energy limits/maximum current reached\n014 =Injector coil: short circuit to ground\n016 = Valve closing time (Begin of Injection Period = BIP) implausible (outside standard window)\n032 = Number of samples too small\n064 = Conversion error\n128 = No closing time identification (Begin of Injection Period = BIP) possible (engine OFF OR electrical error)
+018,4,Cyl 4 status,0,Specified: (Motor ON): 0\n\n000 = Error-free control\n002 = Regulation during starting\n004 = Small injection quantity or valve OFF\n008 = Energy limits/maximum current reached\n014 =Injector coil: short circuit to ground\n016 = Valve closing time (Begin of Injection Period = BIP) implausible (outside standard window)\n032 = Number of samples too small\n064 = Conversion error\n128 = No closing time identification (Begin of Injection Period = BIP) possible (engine OFF OR electrical error)
+;
+020,0,Volume intervention (ABS via CAN)
+020,1,Engine Speed(G28),820-940 rpm,Specified (Idle/manual trans): 820...940 rpm\nSpecified (Idle/Automatik): 790...870 rpm\nSpecified (Full Load): 2800...3200 rpm
+020,2,Motor torq
+020,3,ASR intervention
+020,4,MSR intervention
+;
+021,0,CAN data bus status (drive)
+021,1,Motorelektronik
+021,2,Getriebeelektronik
+021,3,Bremsenelektronik
+021,4,Bremsenelektronik,(ESP)
+;
+022,0,switch-off status GRA-Cruise control
+022,1,switch-off status,Cruise-GRA,0 = GRA GRA not activated\n1 = GRA activated and inactive\n9 = GRA activated and active
+; 0 = GRA nicht freigeschaltet
+; 1 = GRA freigeschaltet und inaktiv
+; 9 = GRA freigeschaltet und aktiv
+022,2,switch position,(GRA),000000 = OFF\n000011 = ON\n000111 = SET\n001011 = RESET\n000001 = OFF
+; 000000 = Gerastet AUS (OFF)
+; 000011 = Neutral (ON)
+; 000111 = Setzen (SET)
+; 001011 = Wiederaufnahme (RESET)
+; 000001 = Getastet AUS (OFF)
+022,3,switch-off status,Intake air press.
+022,4,switch-off status,Klimaanlage
+;
+023,0,Unit inj. Switching time deviation
+023,1,Cylinder 1,-100...+100 ms,Specified: -100...+100 ms
+023,2,Cylinder 2,-100...+100 ms,Specified: -100...+100 ms
+023,3,Cylinder 3,-100...+100 ms,Specified: -100...+100 ms
+023,4,Cylinder 4,-100...+100 ms,Specified: -100...+100 ms
+;
+026,0,Checksum
+026,1,Checksum
+;
+080,0,Extended control unit identification I
+080,1,Identifikation
+080,2,Revision
+080,3,Produktion-,date
+080,4,manufacturer &, test no.
+;
+081,0,Erweiterte Steuergerät Identifikation II
+081,1,vehicle identi., number (FIN)
+081,2,immobilizers, ID no. (WFS ID)
+;
+125,0,Communication - CAN bus messages
+125,1,Gearbox el status,1,Range: Getriebe 1/Getriebe 0
+125,2,Brake el.(J104),1,Range: ABS 1/ABS 0\nSpecified: ABS 1
+125,3,Istrument(J285),1,Range: Kombi 1/Kombi 0\nSpecified: Kombi 1
+125,4,Airbag (J234),1,Range: Airbag 1/Airbag 0\nSpecified: Airbag 1
+;
+126,0,CAN-Datenbus Kommunikation (Antrieb)
+126,1,Klima(J255),,Range: Klima 1/Klima 0
+126,4,Boardelek(J519),,Range: Elektr.ZE 1/Elektr.ZE 0
+;
+;
+;---------------------------------------------------
+;
+; Anpassung
+;
+;---------------------------------------------------
+;
+;
+A001,0,Einspritzmenge
+;
+A002,0,Leerlaufdrehzahl
+A002,1,Motordrehzahl
+A002,2,Gaspedalstellung
+A002,3,Betriebszustand
+A002,4,Kühlmittel-,temperatur (G62)
+;
+A003,0,Abgasrückführung
+;
+A004,0,Einspritzzeitpunkt
+;
+A005,0,Starteinspritzmenge
+;
+A012,0,Vorglühzeit
+A012,1,Glühstatus,,00000000 = Warten auf Kühlmitteltemperatur\n00000001 = Warten auf ECO Startanforderung\n00010000 = Vorglühen\n01010000 = Kein Vorglühen\n10110000 = Nachglühen\n11000000 = Kein Startglühen\n11110000 = Zwischenglühen\n00110000 = Bereitschaftsglühen\n01110000 = Startglühen\n10110001 = Warten auf Nachglühen\n11010000 = Kein Nachglühen\n11110001 = Warten auf Zwischenglühen\n11111111 = Kein Glühen
+; 00000000 = Warten auf Kühlmitteltemperatur
+; 00000001 = Warten auf ECO Startanforderung
+; 00010000 = Vorglühen
+; 01010000 = Kein Vorglühen
+; 10110000 = Nachglühen
+; 11000000 = Kein Startglühen
+; 11110000 = Zwischenglühen
+; 00110000 = Bereitschaftsglühen
+; 01110000 = Startglühen
+; 10110001 = Warten auf Nachglühen
+; 11010000 = Kein Nachglühen
+; 11110001 = Warten auf Zwischenglühen
+; 11111111 = Kein Glühen
+A012,2,Vorglühzeit
+A012,3,Versorgungs-,spannung,Specified: 13.0...15.0 V
+A012,4,Coolant temp(G62),80.0 - 110.0 °C,Specified (Cold): ~Ambient temp\nSpecified (Warm): 80.0...110.0 °C
+A012,5,Vorglühzeit
+A012,6,Verringern Sie den Wert um die Vorglühzeit zu erhöhen
+A012,7,(z.B. von 32768 auf 32700). Die neue/aktuelle Verglühzeit
+A012,8,können Sie bei Coldem Motor über den Messwert in Feld 2
+A012,9,NACH jedem Zündungswechsel (Zündung EIN/AUS) ablesen.
+;
+A018,0,Höchstgeschwindigkeitsbegrenzung
+A018,5,Höchstgeschwindigkeitsbegrenzung
+A018,6,Der Wert der Höchstgeschwindigkeitsbegrenzung lässt sich nur einmalig und
+A018,7,nur nach unten ändern. Danach lässt er sich NICHT mehr nach oben verändern!
+A018,8, 
+A018,9,Benutzen Sie diesen Anpassungskanal nur wenn Sie sich WIRKLICH sicher sind!
+;
+A050,0,Wegfahrsperre (Fahrzeugdaten lernen)
+A050,1,Status
+A050,5,Wegfahrsperre (Fahrzeugdaten lernen)
+A050,6,Geben Sie die Fahrzeug spezifische Geheimnummer (WFS-Login) passend zum originalen
+A050,7,Motorsteuergerät ein. Danach wird der Lernprozess angestoßen und das neue Motorsteuergerät
+A050,8,übernimmt die Fahrzeug-Identifizierungs-Nummer (FIN) und Wegfahrsperren Identifikation
+A050,9,(WFS-ID) vom Kombiinstrument. Schalten Sie nach der Anpassung die Zündung für 2 Minuten AUS.
+A050,10, 
+A050,11,Hinweis: Wird ein GEBRAUCHTES Motorsteuergerät verbaut hat vor der Anpassung ein Login
+A050,12,mit der Fahrzeug spezifischen Geheimnummer (WFS-Login) passend zum neuen "GEBRAUCHTEN"
+A050,13,Motorsteuergerät zu erfolgen.
+;
+A091,0,Wegfahrsperren Status
+A091,5,Wegfahrsperren Status
+A091,6,0 = Wegfahrsperre nicht angepasst (NEU)
+A091,7,1 = Wegfahrsperre abgeschaltet/deaktiviert
+A091,8,4 = Wegfahrsperre angepasst (System i.O.)
+;
+;
+;---------------------------------------------------
+;
+; Codierung
+;
+;---------------------------------------------------
+;
+;
+C00,Motorelektronik (J248) Codierung
+C01,00001 = Automatikgetriebe mit Elektronischem-Stabilitäts-Programm (ESP)
+C02,00002 = Schaltgetriebe mit Elektronischem-Stabilitäts-Programm (ESP)
+C03,00004 = Automatikgetriebe ohne Elektronischem-Stabilitäts-Programm (ESP)
+C04,00005 = Schaltgetriebe ohne Elektronischem-Stabilitäts-Programm (ESP)
+;
+;
+;---------------------------------------------------
+;
+; Login
+;
+;---------------------------------------------------
+;
+;
+L00,Motorelektronik (J248) Login
+L01,11463 = Aktivierung Geschwindigkeitsregelanlage (GRA)
+L02,16167 = Deaktivierung Geschwindigkeitsregelanlage (GRA)
+L03,12233 = Freischaltung Anpassung
+L04, 
+L05,Wegfahrsperre:
+L06,Vor dem Anlernen Anlernen eines neuen GEBRAUCHTEN Motorsteuergerätes
+L07,muss mittels Fahrzeug spezifischer Geheimnummer (WFS-Login) des neuen
+L08,GEBRAUCHTEN Motorsteuergerätes die Anpassung freigeschaltet werden.
+L09,Sie finden diese Geheimnummer auf dem Schlüsselanhänger des
+L10,Ersatzschlüssels (Spenderfahrzeug) oder können ihn über das
+L11,zuständige Vertriebszentrum bzw. über den Importeur ermitteln.
+;
